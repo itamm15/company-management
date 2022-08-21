@@ -28,8 +28,8 @@ defmodule CompanyManagementWeb.Pow.SessionController do
 
   @spec delete(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def delete(conn, _params) do
-    {:ok, conn} = Pow.Plug.clear_authenticated_user(conn)
-
-    redirect(conn, to: Routes.page_path(conn, :index))
+    conn
+    |> Pow.Plug.delete()
+    |> redirect(to: Routes.page_path(conn, :index))
   end
 end
