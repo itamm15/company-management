@@ -1,5 +1,6 @@
 defmodule CompanyManagementWeb.Router do
   use CompanyManagementWeb, :router
+  use Pow.Phoenix.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,10 +15,37 @@ defmodule CompanyManagementWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", CompanyManagementWeb do
+  pipeline :protected do
+    plug Pow.Plug.RequireAuthenticated,
+      error_handler: Pow.Phoenix.PlugErrorHandler
+  end
+
+  pipeline :not_authenticated do
+    plug Pow.Plug.RequireNotAuthenticated,
+      error_handler: MyAppWeb.AuthErrorHandler
+  end
+
+  scope "/" do
     pipe_through :browser
 
-    get "/", PageController, :index
+    pow_routes()
+  end
+
+  scope "/", CompanyManagementWeb do
+    pipe_through [:browser, :not_authenticated]
+
+    get "/signup", Pow.RegistrationController, :new, as: :signup
+    post "/signup", Pow.RegistrationController, :create, as: :signup
+    get "/", Pow.SessionController, :new, as: :login
+    post "/login", Pow.SessionController, :create, as: :login
+  end
+
+  scope "/", CompanyManagementWeb do
+    pipe_through [:browser, :protected]
+
+    get "/page", PageController, :index
+
+    delete "/logout", Pow.SessionController, :delete, as: :logout
   end
 
   # Other scopes may use custom stacks.

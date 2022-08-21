@@ -1,0 +1,23 @@
+<h1>Register</h1>
+
+<%= form_for @changeset, Routes.pow_registration_path(@conn, :create), [as: :user], fn f -> %>
+
+  <%= label f, Pow.Ecto.Schema.user_id_field(@changeset) %>
+  <%= text_input f, Pow.Ecto.Schema.user_id_field(@changeset) %>
+  <%= error_tag f, Pow.Ecto.Schema.user_id_field(@changeset) %>
+
+  <%= label f, :password %>
+  <%= password_input f, :password %>
+  <%= error_tag f, :password %>
+
+  <%= label f, :password_confirmation %>
+  <%= password_input f, :password_confirmation %>
+  <%= error_tag f, :password_confirmation %>
+
+  <div>
+    <%= submit "Register" %>
+  </div>
+<% end %>
+
+
+<span><%= link "Sign in", to: Routes.pow_session_path(@conn, :new) %></span>
