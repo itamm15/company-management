@@ -4,6 +4,9 @@ defmodule CompanyManagement.Users.User do
 
   import Ecto.Changeset
 
+  # aliases
+  alias CompanyManagement.Users.UsersValidation
+
   # attributes
   @required_fields ~w(first_name last_name phone_number bank_account birth_date)a
   @optional_fields ~w(address)a
@@ -30,5 +33,6 @@ defmodule CompanyManagement.Users.User do
     user
     |> cast(attrs, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
+    |> UsersValidation.user_validation()
   end
 end
