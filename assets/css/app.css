@@ -31,14 +31,14 @@
 }
 .invalid-feedback {
   color: #a94442;
-  display: block;
+  display: block!important;
   margin: -1rem 0 2rem;
 }
 
 /* LiveView specific classes for your customization */
 .phx-no-feedback.invalid-feedback,
 .phx-no-feedback .invalid-feedback {
-  display: none;
+  display: block!important;
 }
 
 .phx-click-loading {
@@ -97,6 +97,20 @@
 }
 .fade-out {
   animation: 0.2s ease-out 0s normal forwards 1 fade-out-keys;
+}
+
+.form-control{
+  background-color: white!important;
+}
+.card-login{
+  background-color: #508bfc!important;
+  border-radius: 10px!important;
+  color: white;
+  margin-top: 100px;
+}
+.btn-login{
+  width: 150px;
+  font-size: 13px!important;
 }
 
 @keyframes fade-in-scale-keys{
