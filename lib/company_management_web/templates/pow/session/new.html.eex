@@ -9,12 +9,12 @@
           <%= form_for @changeset, Routes.pow_session_path(@conn, :create), [as: :user], fn y -> %>
             <div class="form-group">
               <%= label y, :email %>
-              <%= text_input y, :email, class: "form-control"%>
+              <%= text_input y, :email, class: "form-control", required: true %>
               <%= error_tag y, :email %>
             </div>
             <div class="form-group">
               <%= label y, :password %>
-              <%= text_input y, :password, class: "form-control" %>
+              <%= text_input y, :password, class: "form-control", required: true %>
               <%= error_tag y, :password %>
             </div>
             <div class="row justify-content-center">

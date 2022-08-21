@@ -1,23 +1,74 @@
-<h1>Register</h1>
-
-<%= form_for @changeset, Routes.pow_registration_path(@conn, :create), [as: :user], fn f -> %>
-
-  <%= label f, Pow.Ecto.Schema.user_id_field(@changeset) %>
-  <%= text_input f, Pow.Ecto.Schema.user_id_field(@changeset) %>
-  <%= error_tag f, Pow.Ecto.Schema.user_id_field(@changeset) %>
-
-  <%= label f, :password %>
-  <%= password_input f, :password %>
-  <%= error_tag f, :password %>
-
-  <%= label f, :password_confirmation %>
-  <%= password_input f, :password_confirmation %>
-  <%= error_tag f, :password_confirmation %>
-
-  <div>
-    <%= submit "Register" %>
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-6">
+      <div class="card card-register">
+        <div class="card-body">
+          <div class="card-title">
+            <h1> Login </h1>
+          </div>
+          <%= form_for @changeset, Routes.pow_registration_path(@conn, :create), [as: :user], fn y -> %>
+            <div class="row justify-content-center align-items-center">
+              <div class="col-6">
+                <div class="form-group">
+                  <%= label y, :first_name %>
+                  <%= text_input y, :first_name, class: "form-control", required: true, placeholder: "John" %>
+                  <%= error_tag y, :firt_name %>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <%= label y, :last_name %>
+                  <%= text_input y, :last_name, class: "form-control", required: true, placeholder: "Smith" %>
+                  <%= error_tag y, :last_name %>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= label y, :email %>
+              <%= text_input y, :email, class: "form-control", required: true, placeholder: "john.smith@gmail.com" %>
+              <%= error_tag y, :email %>
+            </div>
+            <div class="form-group">
+              <%= label y, :password %>
+              <%= password_input y, :password, class: "form-control", required: true, placeholder: "***********" %>
+              <%= error_tag y, :password %>
+            </div>
+            <div class="form-group">
+              <%= label y, :password_confirmation %>
+              <%= password_input y, :password_confirmation, class: "form-control", required: true, placeholder: "***********" %>
+              <%= error_tag y, :password_confirmation %>
+            </div>
+            <div class="form-group">
+              <%= label y, :phone_number %>
+              <%= text_input y, :phone_number, class: "form-control", required: true, placeholder: "5432132222" %>
+              <%= error_tag y, :phone_number %>
+            </div>
+            <div class="form-group">
+              <%= label y, :bank_account %>
+              <%= text_input y, :bank_account, class: "form-control", required: true, placeholder: "123456789012345678901234567890" %>
+              <%= error_tag y, :bank_account %>
+            </div>
+            <div class="form-group">
+              <%= label y, :address %>
+              <%= text_input y, :address, class: "form-control", required: true, placeholder: "Honolulu 20, Hawaii" %>
+              <%= error_tag y, :address %>
+            </div>
+            <div class="form-group">
+              <%= label y, :birth_date %>
+              <%= date_input y, :birth_date, class: "form-control", required: true %>
+              <%= error_tag y, :birth_date %>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-6 text-center">
+                <%= submit "Register", class: "btn btn-dark btn-login" %>
+              </div>
+              <div class="col-6 text-center">
+                <%= link "Login", to: Routes.pow_session_path(@conn, :new), class: "btn btn-dark btn-login", style: "height: 37px;" %>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
-
-
-<span><%= link "Sign in", to: Routes.pow_session_path(@conn, :new) %></span>
+</div>

@@ -108,6 +108,12 @@
   color: white;
   margin-top: 100px;
 }
+.card-register{
+  background-color: #508bfc!important;
+  border-radius: 10px!important;
+  color: white;
+  margin-top: 10px;
+}
 .btn-login{
   width: 150px;
   font-size: 13px!important;
