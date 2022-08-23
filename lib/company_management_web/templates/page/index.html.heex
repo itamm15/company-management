@@ -1,0 +1,19 @@
+<div class="container-fluid" style="background-color: #508bfc; height: 50px;">
+  <div class="row" style="height: 50px;">
+    <div class="col-3">
+
+    </div>
+    <div class="col-3">
+
+    </div>
+    <div class="col-3">
+
+    </div>
+    <div class="col-3 d-flex justify-content-end align-items-center">
+      <%= if Pow.Plug.current_user(@conn) do %>
+        <%= @current_user.email %>
+        <%= link "Sign out", to: Routes.pow_session_path(@conn, :delete),  method: :delete %>
+      <%end%>
+    </div>
+  </div>
+</div>
