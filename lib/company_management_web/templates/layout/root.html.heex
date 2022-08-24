@@ -11,6 +11,9 @@
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
+    <%= if Pow.Plug.current_user(@conn) do %>
+      <%= render CompanyManagementWeb.SidebarView, "_sidebar.html", assigns %>
+    <%end%>
     <%= @inner_content %>
   </body>
 </html>
