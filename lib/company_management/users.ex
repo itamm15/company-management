@@ -9,5 +9,4 @@ defmodule CompanyManagement.Users do
   # Users
 
   defdelegate get_user_by_id(id), to: UsersContext
-
 end
