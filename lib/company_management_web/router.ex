@@ -43,8 +43,11 @@ defmodule CompanyManagementWeb.Router do
   scope "/", CompanyManagementWeb do
     pipe_through [:browser, :protected]
 
-    get "/page", PageController, :index
+    scope "/user" do
+      resources "/", Users.UserController
+    end
 
+    get "/page", PageController, :index
     delete "/logout", Pow.SessionController, :delete, as: :logout
   end
 
