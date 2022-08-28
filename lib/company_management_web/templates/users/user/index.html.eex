@@ -14,7 +14,7 @@
             <%= link to: Routes.user_path(@conn, :index, type: "profile"), class: "d-flex justify-content-start align-items-center", style: "color: black" do%>
               <i class="fa fa-user-circle" style="font-size: 24px;padding-right: 10px;"></i> Profile
             <%end%>
-            <%= link to: Routes.user_path(@conn, :index, type: "profile"), class: "d-flex justify-content-start align-items-center pt-4", style: "color: black" do%>
+            <%= link to: Routes.user_path(@conn, :edit, @user_details.id), class: "d-flex justify-content-start align-items-center pt-4", style: "color: black" do%>
               <i class="fas fa-edit" style="font-size: 24px;padding-right: 10px;"></i> Edit profile
             <%end%>
           </div>
