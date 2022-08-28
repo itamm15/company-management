@@ -51,7 +51,7 @@
             Birthdate: <%= @user_details.birth_date %>
           </div>
           <div class="col-6">
-            Started working at: <%= @user_details.inserted_at %>
+            Started working at: <%= format_naive_date(@user_details.inserted_at) %>
           </div>
         </div>
       </div>
