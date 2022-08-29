@@ -21,39 +21,11 @@
         </div>
       </div>
       <div class="col-7 text-center" style="color: black; font-size: 12px;">
-        <h3 class="text-left pt-4">Biographia</h3>
-        <div class="row d-flex justify-content-space-between align-items-center text-left", style="height: 50px;">
-          <div class="col-6">
-            First Name: <%= @user_details.first_name %>
-          </div>
-          <div class="col-6">
-            Last Name: <%= @user_details.last_name %>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-space-between align-items-center text-left", style="height: 50px;">
-          <div class="col-6">
-            Email: <%= @user_details.email %>
-          </div>
-          <div class="col-6">
-            Address: <%= @user_details.address %>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-space-between align-items-center text-left", style="height: 50px;">
-          <div class="col-6">
-            Phone Number: <%= @user_details.phone_number %>
-          </div>
-          <div class="col-6">
-            Bank Account: <%= @user_details.bank_account %>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-space-between align-items-center text-left", style="height: 50px;">
-          <div class="col-6">
-            Birthdate: <%= @user_details.birth_date %>
-          </div>
-          <div class="col-6">
-            Started working at: <%= format_naive_date(@user_details.inserted_at) %>
-          </div>
-        </div>
+        <%= if Enum.at(@conn.path_info, 2) == "edit" do%>
+          <%= render("edit.html", changeset: @changeset, conn: @conn, id: @id) %>
+        <%else%>
+          <%= render("_user_bio.html", user_details: @user_details) %>
+        <%end%>
       </div>
     </div>
   </div>

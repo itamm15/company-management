@@ -12,8 +12,13 @@ defmodule CompanyManagementWeb.Users.UserController do
   end
 
   @spec edit(Plug.Conn.t(), map()) :: Plug.Conn.t()
-  def edit(conn, _params) do
-    changeset = User.changeset(%User{}, %{})
-    render(conn, :edit, changeset: changeset)
+  def edit(conn, %{"id" => id}) do
+    fields = %{
+      changeset: User.changeset(%User{}, %{}),
+      user_details: Users.get_user_by_id(id),
+      id: id
+    }
+
+    render(conn, "index.html", fields)
   end
 end
