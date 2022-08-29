@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :company_management, CompanyManagement.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "mateuszosinski",
+  password: "",
   hostname: "localhost",
   database: "company_management_dev",
   stacktrace: true,
