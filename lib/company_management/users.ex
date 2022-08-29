@@ -9,4 +9,6 @@ defmodule CompanyManagement.Users do
   # Users
 
   defdelegate get_user_by_id(id), to: UsersContext
+
+  defdelegate update_user(user, updated_user), to: UsersContext
 end

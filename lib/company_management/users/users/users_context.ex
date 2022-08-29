@@ -12,4 +12,11 @@ defmodule CompanyManagement.Users.UsersContext do
     User
     |> Repo.get(id)
   end
+
+  @spec update_user(User.t(), map()) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
+  def update_user(user, updated_list) do
+    user
+    |> User.changeset(updated_list)
+    |> Repo.update()
+  end
 end
