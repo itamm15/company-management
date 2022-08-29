@@ -1,4 +1,7 @@
 defmodule CompanyManagementWeb.AuthErrorHandler do
+  @moduledoc """
+  Module responsible for handling authentication errors
+  """
   use CompanyManagementWeb, :controller
   alias Plug.Conn
 

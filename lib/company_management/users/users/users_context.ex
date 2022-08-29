@@ -4,8 +4,8 @@ defmodule CompanyManagement.Users.UsersContext do
   """
 
   # aliases
-  alias CompanyManagement.Users.User
   alias CompanyManagement.Repo
+  alias CompanyManagement.Users.User
 
   @spec get_user_by_id(String.t() | integer()) :: nil | User.t()
   def get_user_by_id(id) do
