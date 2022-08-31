@@ -11,7 +11,7 @@ defmodule CompanyManagement.Users.User do
   alias CompanyManagement.Users.UsersValidation
 
   # attributes
-  @required_fields ~w(first_name last_name phone_number bank_account birth_date)a
+  @required_fields ~w(first_name last_name phone_number bank_account birth_date role)a
   @optional_fields ~w(address)a
 
   schema "users" do
@@ -21,6 +21,7 @@ defmodule CompanyManagement.Users.User do
     field :bank_account, :string
     field :birth_date, :date
     field :address, :string
+    field :role, Ecto.Enum, values: [:admin, :developer, :hr, :manager, :accountant, :user]
     pow_user_fields()
 
     timestamps()
