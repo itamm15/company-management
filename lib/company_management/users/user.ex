@@ -15,6 +15,7 @@ defmodule CompanyManagement.Users.User do
   @optional_fields ~w(address)a
 
   schema "users" do
+    belongs_to :company, CompanyManagement.Company.Company
     field :first_name, :string
     field :last_name, :string
     field :phone_number, :string
