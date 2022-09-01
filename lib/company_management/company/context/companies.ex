@@ -1,4 +1,4 @@
-defmodule CompanyManagement.Company.CompanyContext do
+defmodule CompanyManagement.Company.Companies do
   @moduledoc """
   Subcontext of company
   """

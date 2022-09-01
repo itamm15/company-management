@@ -1,4 +1,4 @@
-defmodule CompanyManagement.Company.UsersContext do
+defmodule CompanyManagement.Company.Users do
   @moduledoc """
   Subcontext of users
   """

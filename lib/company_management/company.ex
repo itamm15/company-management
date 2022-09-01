@@ -4,11 +4,16 @@ defmodule CompanyManagement.Company do
   """
 
   # aliases
-  alias CompanyManagement.Company.UsersContext
+  alias CompanyManagement.Company.Companies
+  alias CompanyManagement.Company.Users
 
   # Users
 
-  defdelegate get_user_by_id(id), to: UsersContext
+  defdelegate get_user_by_id(id), to: Users
 
-  defdelegate update_user(user, updated_user), to: UsersContext
+  defdelegate update_user(user, updated_user), to: Users
+
+  # Company
+
+  defdelegate get_compan_by_id(id), to: Companies
 end
