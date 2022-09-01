@@ -1,4 +1,4 @@
-defmodule CompanyManagement.Users.User do
+defmodule CompanyManagement.Company.User do
   @moduledoc """
   User schema
   """
@@ -8,7 +8,7 @@ defmodule CompanyManagement.Users.User do
   import Ecto.Changeset
 
   # aliases
-  alias CompanyManagement.Users.UsersValidation
+  alias CompanyManagement.Company.UsersValidation
 
   # attributes
   @required_fields ~w(first_name last_name phone_number bank_account birth_date role)a

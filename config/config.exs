@@ -48,7 +48,7 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 config :company_management, :pow,
-  user: CompanyManagement.Users.User,
+  user: CompanyManagement.Company.User,
   repo: CompanyManagement.Repo,
   web_module: CompanyManagementWeb
 

@@ -10,7 +10,7 @@ defmodule CompanyManagement.Company.Company do
   @required_fields ~w(name created_on owner employee)a
 
   schema "companies" do
-    has_many(:users, CompanyManagement.Users.User)
+    has_many(:users, CompanyManagement.Company.User)
     field :name, :string
     field :created_on, :date
     timestamps()

@@ -1,13 +1,13 @@
-defmodule CompanyManagementWeb.Users.UserController do
+defmodule CompanyManagementWeb.Company.UserController do
   use CompanyManagementWeb, :controller
 
   # aliases
-  alias CompanyManagement.Users
-  alias CompanyManagement.Users.User
+  alias CompanyManagement.Company
+  alias CompanyManagement.Company.User
 
   @spec index(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def index(conn, _params) do
-    user_details = conn.assigns.current_user.id |> Users.get_user_by_id()
+    user_details = conn.assigns.current_user.id |> Company.get_user_by_id()
     render(conn, :index, user_details: user_details)
   end
 
@@ -15,7 +15,7 @@ defmodule CompanyManagementWeb.Users.UserController do
   def edit(conn, %{"id" => id, "changeset" => changeset}) do
     fields = %{
       changeset: format_changeset(changeset),
-      user_details: Users.get_user_by_id(id),
+      user_details: Company.get_user_by_id(id),
       id: id
     }
 
@@ -24,10 +24,10 @@ defmodule CompanyManagementWeb.Users.UserController do
 
   @spec update(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def update(conn, %{"id" => id, "user" => updated_user}) do
-    user_details = Users.get_user_by_id(id)
+    user_details = Company.get_user_by_id(id)
 
     user_details
-    |> Users.update_user(updated_user)
+    |> Company.update_user(updated_user)
     |> case do
       {:ok, _} ->
         conn

@@ -1,4 +1,4 @@
-defmodule CompanyManagement.Users.UsersValidation do
+defmodule CompanyManagement.Company.UsersValidation do
   @moduledoc """
   Module responsible for validating users.
   """

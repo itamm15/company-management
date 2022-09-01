@@ -1,11 +1,11 @@
-defmodule CompanyManagement.Users.UsersContext do
+defmodule CompanyManagement.Company.UsersContext do
   @moduledoc """
   Subcontext of users
   """
 
   # aliases
   alias CompanyManagement.Repo
-  alias CompanyManagement.Users.User
+  alias CompanyManagement.Company.User
 
   @spec get_user_by_id(String.t() | integer()) :: nil | User.t()
   def get_user_by_id(id) do

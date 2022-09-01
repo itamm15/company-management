@@ -1,4 +1,4 @@
-defmodule CompanyManagementWeb.Users.UserView do
+defmodule CompanyManagementWeb.Company.UserView do
   use CompanyManagementWeb, :view
 
   @spec format_naive_date(NaiveDateTime.t()) :: Date.t()

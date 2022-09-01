@@ -1,10 +1,10 @@
-defmodule CompanyManagement.Users do
+defmodule CompanyManagement.Company do
   @moduledoc """
-  Users context
+  Main context of Company
   """
 
   # aliases
-  alias CompanyManagement.Users.UsersContext
+  alias CompanyManagement.Company.UsersContext
 
   # Users
 

@@ -43,8 +43,9 @@ defmodule CompanyManagementWeb.Router do
   scope "/", CompanyManagementWeb do
     pipe_through [:browser, :protected]
 
-    scope "/user" do
-      resources "/", Users.UserController
+    scope "/" do
+      resources "/user", Company.UserController
+      resources "/company", Company.CompanyController
     end
 
     get "/page", PageController, :index
