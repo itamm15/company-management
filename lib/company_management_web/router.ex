@@ -25,6 +25,10 @@ defmodule CompanyManagementWeb.Router do
       error_handler: CompanyManagementWeb.AuthErrorHandler
   end
 
+  pipeline :admin do
+    plug CompanyManagementWeb.EnsureRolePlug, :admin
+  end
+
   scope "/" do
     pipe_through :browser
 
