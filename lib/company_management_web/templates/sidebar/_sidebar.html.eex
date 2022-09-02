@@ -11,7 +11,9 @@
       %>
     </div>
     <div class="col-3 d-flex justify-content-center align-items-center">
-      <!--NEXT PANEL IN FUTURE-->
+      <%=
+        link "Tasks list", to: Routes.task_path(@conn, :index), style: "color: white"
+      %>
     </div>
     <div class="col-3 d-flex justify-content-center align-items-center">
       <!--NEXT PANEL IN FUTURE-->

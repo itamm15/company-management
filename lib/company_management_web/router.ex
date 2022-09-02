@@ -54,6 +54,7 @@ defmodule CompanyManagementWeb.Router do
     scope "/" do
       resources "/user", Company.UserController
       resources "/company", Company.CompanyController
+      resources "/tasks", Task.TaskController
     end
 
     get "/page", PageController, :index
