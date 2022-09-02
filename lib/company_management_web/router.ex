@@ -37,6 +37,10 @@ defmodule CompanyManagementWeb.Router do
 
   scope "/admin", CompanyManagementWeb do
     pipe_through [:browser, :admin]
+
+    scope "/" do
+      resources "/tasks", Admin.Task.TaskController
+    end
   end
 
   scope "/", CompanyManagementWeb do
