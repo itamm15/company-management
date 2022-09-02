@@ -13,6 +13,7 @@ defmodule CompanyManagement.Company.User do
   # attributes
   @required_fields ~w(first_name last_name phone_number bank_account birth_date role)a
   @optional_fields ~w(address)a
+  @roles ~w(admin developer hr manager accountant user)
 
   schema "users" do
     belongs_to :company, CompanyManagement.Company.Company
@@ -32,6 +33,12 @@ defmodule CompanyManagement.Company.User do
     user
     |> pow_changeset(attrs)
     |> user_changeset(attrs)
+  end
+
+  def role_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:role])
+    |> validate_inclusion(:role, @roles)
   end
 
   defp user_changeset(user, attrs) do

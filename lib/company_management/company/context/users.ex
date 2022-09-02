@@ -19,4 +19,23 @@ defmodule CompanyManagement.Company.Users do
     |> User.changeset(updated_list)
     |> Repo.update()
   end
+
+  ### ROLES
+
+  @spec create_user_with_role(map(), String.t() | binary()) ::
+          {:ok, User.t()} | {:error, Ecto.Changeset.t()}
+  def create_user_with_role(attrs, role) do
+    %User{}
+    |> User.changeset(attrs)
+    |> User.role_changeset(%{role: role})
+    |> Repo.insert()
+  end
+
+  @spec set_role(map(), String.t() | binary()) ::
+          {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
+  def set_role(user, role) do
+    user
+    |> User.role_changeset(%{role: role})
+    |> Repo.update()
+  end
 end
