@@ -35,6 +35,10 @@ defmodule CompanyManagementWeb.Router do
     pow_routes()
   end
 
+  scope "/admin", CompanyManagementWeb do
+    pipe_through [:browser, :admin]
+  end
+
   scope "/", CompanyManagementWeb do
     pipe_through [:browser, :not_authenticated]
 
