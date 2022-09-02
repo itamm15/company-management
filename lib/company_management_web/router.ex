@@ -35,11 +35,11 @@ defmodule CompanyManagementWeb.Router do
     pow_routes()
   end
 
-  scope "/admin", CompanyManagementWeb do
+  scope "/admin", CompanyManagementWeb, as: :admin do
     pipe_through [:browser, :admin]
 
     scope "/" do
-      resources "/tasks", Admin.Task.TaskController
+      resources "/tasks", Admin.TaskController
     end
   end
 
