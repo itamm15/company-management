@@ -4,5 +4,4 @@ defmodule CompanyManagement.Task do
   """
 
   # aliases
-
 end
