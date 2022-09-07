@@ -40,6 +40,7 @@ defmodule CompanyManagementWeb.Router do
 
     scope "/" do
       resources "/tasks", Admin.TaskController
+      resources "/users", Admin.UserController
     end
   end
 

@@ -21,6 +21,11 @@
           link "Create task", to: Routes.admin_task_path(@conn, :new), style: "color: white"
         %>
       </div>
+      <div class="col-1 d-flex justify-content-center align-items-center">
+        <%=
+          link "Users", to: Routes.admin_user_path(@conn, :index), style: "color: white"
+        %>
+      </div>
     <%else%>
       <div class="col-3 d-flex justify-content-center align-items-center">
         <%=
@@ -28,7 +33,7 @@
         %>
       </div>
     <%end%>
-    <div class="col-3 d-flex justify-content-center align-items-center">
+    <div class="col-2 d-flex justify-content-center align-items-center">
       <!--NEXT PANEL IN FUTURE-->
     </div>
     <div class="col-2 d-flex justify-content-center align-items-center">
