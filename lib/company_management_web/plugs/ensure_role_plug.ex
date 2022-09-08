@@ -23,7 +23,6 @@ defmodule CompanyManagementWeb.EnsureRolePlug do
   def call(conn, roles) do
     conn
     |> Plug.current_user()
-    |> IO.inspect(label: "whats hidden there")
     |> has_role?(roles)
     |> maybe_halt(conn)
   end
