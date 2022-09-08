@@ -23,6 +23,7 @@ defmodule CompanyManagementWeb.EnsureRolePlug do
   def call(conn, roles) do
     conn
     |> Plug.current_user()
+    |> IO.inspect(label: "whats hidden there")
     |> has_role?(roles)
     |> maybe_halt(conn)
   end
@@ -31,7 +32,18 @@ defmodule CompanyManagementWeb.EnsureRolePlug do
   defp has_role?(user, roles) when is_list(roles), do: Enum.any?(roles, &has_role?(user, &1))
   defp has_role?(user, role) when is_atom(role), do: has_role?(user, Atom.to_string(role))
   defp has_role?(%{role: role}, role), do: true
-  defp has_role?(_user, _role), do: false
+
+  defp has_role?(user, role) do
+    user
+    |> Map.get(:role)
+    |> case do
+      nil ->
+        false
+
+      user_role ->
+        user_role == role or user_role == String.to_atom(role)
+    end
+  end
 
   defp maybe_halt(true, conn), do: conn
 
