@@ -11,12 +11,12 @@ defmodule CompanyManagement.Company.User do
   alias CompanyManagement.Company.UsersValidation
 
   # attributes
-  @required_fields ~w(first_name last_name phone_number bank_account birth_date role)a
+  @required_fields ~w(first_name last_name phone_number bank_account birth_date role company_id)a
   @optional_fields ~w(address)a
   @roles ~w(admin developer hr manager accountant user)
 
   schema "users" do
-    belongs_to :company, CompanyManagement.Company.Company
+    has_many(:tasks, CompanyManagement.Task.Task)
     field :first_name, :string
     field :last_name, :string
     field :phone_number, :string
@@ -27,6 +27,7 @@ defmodule CompanyManagement.Company.User do
     pow_user_fields()
 
     timestamps()
+    belongs_to :company, CompanyManagement.Company.Company, foreign_key: :company_id
   end
 
   def changeset(user, attrs) do
