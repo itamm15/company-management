@@ -6,16 +6,18 @@ defmodule CompanyManagement.Company.Users do
   # aliases
   alias CompanyManagement.Repo
   alias CompanyManagement.Company.User
+  alias CompanyManagement.Company.UserQueries
 
   @spec get_user_by_id(String.t() | integer()) :: nil | User.t()
   def get_user_by_id(id) do
-    User
+    UserQueries.all()
     |> Repo.get(id)
   end
 
   @spec list_users :: list()
   def list_users() do
-    User
+    UserQueries.all()
+    |> UserQueries.order_by_column(:id)
     |> Repo.all()
   end
 
