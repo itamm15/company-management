@@ -10,6 +10,7 @@
           <td>Address</td>
           <td>Bank Account</td>
           <td>Phone number</td>
+          <td>Links</td>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +23,7 @@
             <td><%=user.address%></td>
             <td><%=user.bank_account%></td>
             <td><%=user.phone_number%></td>
+            <td><%=display_links(@conn, user.id)%></td>
           </tr>
         <%end%>
       </tbody>
