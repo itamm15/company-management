@@ -13,6 +13,12 @@ defmodule CompanyManagement.Company.Users do
     |> Repo.get(id)
   end
 
+  @spec list_users :: list()
+  def list_users() do
+    User
+    |> Repo.all()
+  end
+
   @spec update_user(User.t(), map()) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
   def update_user(user, updated_list) do
     user

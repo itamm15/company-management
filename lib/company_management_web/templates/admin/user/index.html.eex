@@ -1,1 +1,30 @@
-<h1>USER CONTROLLER</h1>
+<div class="container-fluid" style="margin-top: 60px; font-size: 15px;">
+  <div class="row d-flex justify-content-center">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>User</td>
+          <td>Role</td>
+          <td>Email</td>
+          <td>Address</td>
+          <td>Bank Account</td>
+          <td>Phone number</td>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for user <- @users do %>
+          <tr>
+            <td><%=user.id%></td>
+            <td><%=user.first_name <> " " <> user.last_name%></td>
+            <td><%=user.role%></td>
+            <td><%=user.email%></td>
+            <td><%=user.address%></td>
+            <td><%=user.bank_account%></td>
+            <td><%=user.phone_number%></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>
