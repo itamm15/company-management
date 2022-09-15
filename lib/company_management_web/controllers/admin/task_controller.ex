@@ -16,4 +16,8 @@ defmodule CompanyManagementWeb.Admin.TaskController do
     users_list = Company.list_users()
     render(conn, "new.html", changeset: changeset, users_list: users_list)
   end
+
+  @spec create(Plug.Conn.t(), map()) :: Plug.Conn.t()
+  def create(conn, %{"task" => task}) do
+  end
 end
