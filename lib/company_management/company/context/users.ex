@@ -24,7 +24,7 @@ defmodule CompanyManagement.Company.Users do
   @spec update_user(User.t(), map()) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
   def update_user(user, updated_list) do
     user
-    |> User.changeset(updated_list)
+    |> User.user_changeset(updated_list)
     |> Repo.update()
   end
 

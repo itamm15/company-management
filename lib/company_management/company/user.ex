@@ -42,7 +42,7 @@ defmodule CompanyManagement.Company.User do
     |> validate_inclusion(:role, @roles)
   end
 
-  defp user_changeset(user, attrs) do
+  def user_changeset(user, attrs) do
     user
     |> cast(attrs, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
