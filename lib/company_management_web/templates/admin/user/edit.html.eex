@@ -59,9 +59,21 @@
       </div>
     </div>
   </div>
-  <div class="col-12 text-center" style="margin-top: 20px;">
-    <div class="form-group">
-      <%= submit "Edit", class: "btn btn-primary", style: "width: 125px;font-size: 16px;" %>
+  <div class="row d-flex align-items-end">
+    <div class="col-6">
+      <div class="form-group">
+        <%= label y, :role %>
+        <%=
+          text_input y, :role, class: "form-control",
+          value: @user.role
+        %>
+        <%= error_tag y, :role %>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <%= submit "Edit", class: "btn btn-primary", style: "width: 125px;font-size: 16px;" %>
+      </div>
     </div>
   </div>
 <%end%>
