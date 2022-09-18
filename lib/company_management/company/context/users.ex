@@ -28,6 +28,12 @@ defmodule CompanyManagement.Company.Users do
     |> Repo.update()
   end
 
+  @spec delete_user(User.t()) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
+  def delete_user(user) do
+    user
+    |> Repo.delete()
+  end
+
   ### ROLES
 
   @spec create_user_with_role(map(), String.t() | binary()) ::

@@ -24,12 +24,29 @@ defmodule CompanyManagementWeb.Admin.UserController do
     |> case do
       {:ok, _updated} ->
         conn
-        |> put_flash(:info, "User updated successfuly")
+        |> put_flash(:info, "User updated successfuly.")
         |> redirect(to: Routes.admin_user_path(conn, :index))
 
       {:error, error} ->
         conn
         |> render("edit.html", changeset: error, user: Company.get_user_by_id(id))
+    end
+  end
+
+  @spec delete(Plug.Conn.t(), map()) :: Plug.Conn.t()
+  def delete(conn, %{"id" => id}) do
+    Company.get_user_by_id(id)
+    |> Company.delete_user()
+    |> case do
+      {:ok, _deleted} ->
+        conn
+        |> put_flash(:info, "User deleted successfuly.")
+        |> redirect(to: Routes.admin_user_path(conn, :index))
+
+      {:error, _error} ->
+        conn
+        |> put_flash(:error, "Could not delete user.")
+        |> redirect(to: Routes.admin_user_path(conn, :index))
     end
   end
 end

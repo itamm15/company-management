@@ -15,6 +15,8 @@ defmodule CompanyManagement.Company do
 
   defdelegate update_user(user, updated_user), to: Users
 
+  defdelegate delete_user(user), to: Users
+
   # Company
 
   defdelegate get_compan_by_id(id), to: Companies

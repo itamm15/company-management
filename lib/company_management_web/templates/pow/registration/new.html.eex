@@ -59,6 +59,7 @@
               <%= error_tag y, :birth_date %>
             </div>
               <%= hidden_input y, :role, value: :user %>
+              <%= hidden_input y, :company_id, value: 1 %>
             <div class="row justify-content-center">
               <div class="col-6 text-center">
                 <%= submit "Register", class: "btn btn-dark btn-login" %>
