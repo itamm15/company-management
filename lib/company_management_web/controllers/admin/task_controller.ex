@@ -1,6 +1,9 @@
 defmodule CompanyManagementWeb.Admin.TaskController do
   use CompanyManagementWeb, :controller
 
+  # aliases
+  alias CompanyManagement.Task.Task
+
   @spec index(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def index(conn, _params) do
     render(conn, "index.html")
@@ -8,7 +11,7 @@ defmodule CompanyManagementWeb.Admin.TaskController do
 
   @spec new(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def new(conn, _params) do
-    # changeset
-    render(conn, "new.html")
+    changeset = Task.changeset(%Task{}, %{})
+    render(conn, "new.html", changeset: changeset)
   end
 end
