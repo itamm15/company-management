@@ -7,6 +7,9 @@ defmodule CompanyManagement.Task.Task do
 
   import Ecto.Changeset
 
+  # type
+  @type t :: %__MODULE__{}
+
   # attributes
   @required_fields ~w(description status admin_id user_id)a
   @statuses ~w(pending ongoing review finished)a

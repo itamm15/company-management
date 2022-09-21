@@ -10,6 +10,9 @@ defmodule CompanyManagement.Company.User do
   # aliases
   alias CompanyManagement.Company.UsersValidation
 
+  # type
+  @type t :: %__MODULE__{}
+
   # attributes
   @required_fields ~w(first_name last_name phone_number bank_account birth_date role company_id)a
   @optional_fields ~w(address)a
