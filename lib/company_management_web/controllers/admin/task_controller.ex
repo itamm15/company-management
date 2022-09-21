@@ -3,6 +3,7 @@ defmodule CompanyManagementWeb.Admin.TaskController do
 
   # aliases
   alias CompanyManagement.Task.Task
+  alias CompanyManagement.Company
 
   @spec index(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def index(conn, _params) do
@@ -12,6 +13,7 @@ defmodule CompanyManagementWeb.Admin.TaskController do
   @spec new(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def new(conn, _params) do
     changeset = Task.changeset(%Task{}, %{})
-    render(conn, "new.html", changeset: changeset)
+    users_list = Company.list_users()
+    render(conn, "new.html", changeset: changeset, users_list: users_list)
   end
 end
