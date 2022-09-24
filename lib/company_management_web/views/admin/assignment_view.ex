@@ -1,4 +1,4 @@
-defmodule CompanyManagementWeb.Admin.TaskView do
+defmodule CompanyManagementWeb.Admin.AssignmentView do
   use CompanyManagementWeb, :view
 
   @spec list_users(list()) :: list()

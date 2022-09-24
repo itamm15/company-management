@@ -39,7 +39,7 @@ defmodule CompanyManagementWeb.Router do
     pipe_through [:browser, :protected, :admin]
 
     scope "/" do
-      resources "/tasks", Admin.TaskController
+      resources "/assignments", Admin.AssignmentController
       resources "/users", Admin.UserController
     end
   end
@@ -59,7 +59,7 @@ defmodule CompanyManagementWeb.Router do
     scope "/" do
       resources "/user", Company.UserController
       resources "/company", Company.CompanyController
-      resources "/tasks", Task.TaskController
+      resources "/assignments", Assignment.AssignmentController
     end
 
     get "/page", PageController, :index

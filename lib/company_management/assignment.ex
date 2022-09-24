@@ -1,4 +1,4 @@
-defmodule CompanyManagement.Task do
+defmodule CompanyManagement.Assignment do
   @moduledoc """
   Main context of Task
   """

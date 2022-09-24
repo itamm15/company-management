@@ -13,12 +13,12 @@
     <%= if is_admin?(@conn.assigns.current_user) do %>
       <div class="col-1 d-flex justify-content-center align-items-center">
         <%=
-          link "Tasks list", to: Routes.admin_task_path(@conn, :index), style: "color: white"
+          link "Tasks list", to: Routes.admin_assignment_path(@conn, :index), style: "color: white"
         %>
       </div>
       <div class="col-2 d-flex justify-content-center align-items-center">
         <%=
-          link "Create task", to: Routes.admin_task_path(@conn, :new), style: "color: white"
+          link "Create task", to: Routes.admin_assignment_path(@conn, :new), style: "color: white"
         %>
       </div>
       <div class="col-1 d-flex justify-content-center align-items-center">
@@ -29,7 +29,7 @@
     <%else%>
       <div class="col-3 d-flex justify-content-center align-items-center">
         <%=
-          link "Tasks list", to: Routes.task_path(@conn, :index), style: "color: white"
+          link "Tasks list", to: Routes.assignment_path(@conn, :index), style: "color: white"
         %>
       </div>
     <%end%>

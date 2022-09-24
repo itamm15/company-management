@@ -1,4 +1,4 @@
-defmodule CompanyManagementWeb.Task.TaskController do
+defmodule CompanyManagementWeb.Assignment.AssignmentController do
   use CompanyManagementWeb, :controller
 
   @spec index(Plug.Conn.t(), map()) :: Plug.Conn.t()

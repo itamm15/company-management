@@ -6,7 +6,7 @@
           <div class="card-title">
             <h1>Create new task</h1>
           </div>
-          <%= form_for @changeset, Routes.admin_task_path(@conn, :create), fn y -> %>
+          <%= form_for @changeset, Routes.admin_assignment_path(@conn, :create), fn y -> %>
             <div class="form-group">
               <%= label y, :user_id%>
               <%= select y, :user_id, list_users(@users_list), required: true, class: "form-control" %>

@@ -3,7 +3,7 @@ defmodule CompanyManagementWeb.Admin.UserView do
 
   import Phoenix.HTML
 
-  @spec display_links(Plug.Conn.t(), String.t() | integer()) :: {:safe, binary()}
+  @spec display_links(Plug.Conn.t(), String.t() | integer()) :: {:safe, list(binary())}
   def display_links(conn, id) do
     ~E"""
       <%= link "Edit", to: Routes.admin_user_path(conn, :edit, id), class: "btn btn-primary" %>

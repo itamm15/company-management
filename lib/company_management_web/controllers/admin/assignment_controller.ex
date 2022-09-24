@@ -1,8 +1,8 @@
-defmodule CompanyManagementWeb.Admin.TaskController do
+defmodule CompanyManagementWeb.Admin.AssignmentController do
   use CompanyManagementWeb, :controller
 
   # aliases
-  alias CompanyManagement.Task.Task
+  alias CompanyManagement.Assignment.Assignment
   alias CompanyManagement.Company
 
   @spec index(Plug.Conn.t(), map()) :: Plug.Conn.t()
@@ -12,7 +12,7 @@ defmodule CompanyManagementWeb.Admin.TaskController do
 
   @spec new(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def new(conn, _params) do
-    changeset = Task.changeset(%Task{}, %{})
+    changeset = Assignment.changeset(%Assignment{}, %{})
     users_list = Company.list_users()
     render(conn, "new.html", changeset: changeset, users_list: users_list)
   end

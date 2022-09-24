@@ -1,4 +1,4 @@
-defmodule CompanyManagement.Task.Task do
+defmodule CompanyManagement.Assignment.Assignment do
   @moduledoc """
   Task schema
   """
@@ -14,7 +14,7 @@ defmodule CompanyManagement.Task.Task do
   @required_fields ~w(description status admin_id user_id)a
   @statuses ~w(pending ongoing review finished)a
 
-  schema "tasks" do
+  schema "assignments" do
     field :description, :string
     field :status, Ecto.Enum, values: [:pending, :ongoing, :review, :finished]
 
