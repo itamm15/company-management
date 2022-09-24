@@ -1,1 +1,27 @@
-<h1>Admin Tasks Management</h1>
+<div class="container-fluid" style="margin-top: 60px; font-size: 15px;">
+  <div class="row d-flex justify-content-center">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>User</td>
+          <td>Description</td>
+          <td class="text-center">Links</td>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for assignment <- @assignments do %>
+          <tr>
+            <td><%=assignment.id%></td>
+            <td><%=full_user_name(assignment)%></td>
+            <td><%=assignment.description%></td>
+            <td class="text-center">
+              <%= link "Edit", to: Routes.admin_assignment_path(@conn, :edit, assignment.id), class: "btn btn-warning" %>
+              <%= link "Delete", to: Routes.admin_assignment_path(@conn, :delete, assignment), class: "btn btn-danger", method: :delete %>
+            </td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>

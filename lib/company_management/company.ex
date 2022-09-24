@@ -19,5 +19,5 @@ defmodule CompanyManagement.Company do
 
   # Company
 
-  defdelegate get_compan_by_id(id), to: Companies
+  defdelegate get_company_by_id(id), to: Companies
 end

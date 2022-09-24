@@ -7,8 +7,8 @@ defmodule CompanyManagement.Company.Companies do
   alias CompanyManagement.Repo
   alias CompanyManagement.Company.Company
 
-  @spec get_compan_by_id(String.t() | integer()) :: nil | Company.t()
-  def get_compan_by_id(id) do
+  @spec get_company_by_id(String.t() | integer()) :: nil | Company.t()
+  def get_company_by_id(id) do
     Company
     |> Repo.get(id)
   end

@@ -1,6 +1,6 @@
 defmodule CompanyManagement.Assignment.Assignment do
   @moduledoc """
-  Task schema
+  Assignment schema
   """
 
   use Ecto.Schema

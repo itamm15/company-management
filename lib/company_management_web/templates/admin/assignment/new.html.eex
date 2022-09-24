@@ -4,7 +4,7 @@
       <div class="card card-register">
         <div class="card-body">
           <div class="card-title">
-            <h1>Create new task</h1>
+            <h1>Create new assignment</h1>
           </div>
           <%= form_for @changeset, Routes.admin_assignment_path(@conn, :create), fn y -> %>
             <div class="form-group">

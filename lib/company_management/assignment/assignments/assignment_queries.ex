@@ -1,6 +1,6 @@
 defmodule CompanyManagement.Assignment.AssignmentQueries do
   @moduledoc """
-  Module responsible for handling tasks queries
+  Module responsible for handling assignments queries
   """
 
   import Ecto.Query

@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body">
+      <%= form_for @changeset, Routes.admin_assignment_path(@conn, :update, @assignment.id), [method: :patch], fn y -> %>
+        <div class="form-group">
+          <%= label y, :user_id %>
+          <%= select y, :user_id, list_users(@users_list), required: true, class: "form-control" %>
+          <%= error_tag y, :user_id %>
+        </div>
+        <div class="form-group">
+          <%= label y, :description %>
+          <%= text_input y, :description, required: true, class: "form-control" %>
+          <%= error_tag y, :description %>
+        </div>
+        <div class="form-group">
+          <%= label y, :status %>
+          <%= select y, :status, list_statuses(), required: true, class: "form-control" %>
+          <%= error_tag y, :status %>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
