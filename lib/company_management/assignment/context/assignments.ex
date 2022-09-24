@@ -27,4 +27,18 @@ defmodule CompanyManagement.Assignment.Assignments do
     |> Assignment.changeset(assignment)
     |> Repo.insert()
   end
+
+  @spec update_assignment(Assignment.t(), map()) ::
+          {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
+  def update_assignment(assignment, updated_assignment) do
+    assignment
+    |> Assignment.changeset(updated_assignment)
+    |> Repo.update()
+  end
+
+  @spec delete_assignment(Assignment.t()) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
+  def delete_assignment(assignment) do
+    assignment
+    |> Repo.delete()
+  end
 end
