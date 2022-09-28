@@ -14,6 +14,13 @@ defmodule CompanyManagement.Assignment.Assignments do
     |> Repo.get(id)
   end
 
+  @spec list_assignments_for_given_user(String.t() | integer()) :: list(Assignment.t())
+  def list_assignments_for_given_user(user_id) do
+    AssignmentQueries.all()
+    |> AssignmentQueries.where_user_id(user_id)
+    |> Repo.all()
+  end
+
   @spec list_assignments(list()) :: list(Assignment.t())
   def list_assignments(preloads \\ []) do
     AssignmentQueries.all()

@@ -1,3 +1,3 @@
-defmodule CompanyManagementWeb.Assignment.AssignmentkView do
+defmodule CompanyManagementWeb.Assignment.AssignmentView do
   use CompanyManagementWeb, :view
 end
