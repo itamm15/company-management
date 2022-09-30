@@ -2,6 +2,7 @@ defmodule CompanyManagementWeb.Company.CompanyController do
   use CompanyManagementWeb, :controller
 
   # aliases
+  alias CompanyManagement.Assignment
   alias CompanyManagement.Company
 
   @spec index(Plug.Conn.t(), any()) :: Plug.Conn.t()
@@ -10,6 +11,8 @@ defmodule CompanyManagementWeb.Company.CompanyController do
       conn.assigns.current_user.company_id
       |> Company.get_company_by_id()
 
-    render(conn, "index.html", company: company)
+    assignments = Assignment.list_assignments_summary(company.id)
+
+    render(conn, "index.html", company: company, assignments: assignments)
   end
 end

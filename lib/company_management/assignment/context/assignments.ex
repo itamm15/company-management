@@ -14,6 +14,17 @@ defmodule CompanyManagement.Assignment.Assignments do
     |> Repo.get(id)
   end
 
+  @spec list_assignments_summary(String.t() | integer()) ::
+          list(ongoing: integer(), pending: integer(), review: integer(), finished: integer())
+  def list_assignments_summary(company_id) do
+    AssignmentQueries.all()
+    |> AssignmentQueries.join_users()
+    |> AssignmentQueries.where_company_id(company_id)
+    |> AssignmentQueries.assignments_summary()
+    |> AssignmentQueries.group_by_column(:status)
+    |> Repo.all()
+  end
+
   @spec list_assignments_for_given_user(String.t() | integer()) :: list(Assignment.t())
   def list_assignments_for_given_user(user_id) do
     AssignmentQueries.all()

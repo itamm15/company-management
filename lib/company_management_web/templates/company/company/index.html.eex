@@ -17,19 +17,19 @@
           <h2>Tasks details</h2>
           <div class="row d-flex" style="margin-top: 20px;">
             <div class="col-2">
-              Total:
+              Total: <%= sum_assignments(@assignments) %>
             </div>
             <div class="col-2">
-              Pending:
+              Pending: <%= format_assignments_value(@assignments[:pending]) %>
             </div>
             <div class="col-2">
-              Ongoing:
+              Ongoing: <%= format_assignments_value(@assignments[:ongoing]) %>
             </div>
             <div class="col-2">
-              Review:
+              Review: <%= format_assignments_value(@assignments[:review]) %>
             </div>
             <div class="col-2">
-              Finished:
+              Finished: <%= format_assignments_value(@assignments[:finished]) %>
             </div>
           </div>
         </div>
