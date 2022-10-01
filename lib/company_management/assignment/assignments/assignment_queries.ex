@@ -12,10 +12,10 @@ defmodule CompanyManagement.Assignment.AssignmentQueries do
   def assignments_summary(query \\ base()) do
     query
     |> select(
-      [assignements],
+      [assignments],
       {
-        assignements.status,
-        count(assignements.status)
+        assignments.status,
+        count(assignments.status)
       }
     )
   end
